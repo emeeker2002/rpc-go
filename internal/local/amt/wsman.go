@@ -98,8 +98,11 @@ func (g *GoWSMANMessages) SetupWsmanClient(username string, password string, log
 		UseDigest:      true,
 		UseTLS:         false,
 		LogAMTMessages: logAMTMessages,
+		Transport:      NewLocalTransport(),
 	}
+
 	g.wsmanMessages = wsman.NewMessages(clientParams)
+
 }
 
 func (g *GoWSMANMessages) GetGeneralSettings() (general.Response, error) {
